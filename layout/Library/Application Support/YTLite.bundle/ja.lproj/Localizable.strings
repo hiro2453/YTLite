@@ -92,17 +92,17 @@
 /* Player options */
 "Player" = "プレーヤー";
 "PlaybackQualityOnWiFi" = "WiFi での再生画質";
-"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
+"PlaybackQualityOnWiFiDesc" = "Wi-Fi経由で動画を再生する際、選択した画質を自動的に適用します。";
 "PlaybackQualityOnCellular" = "モバイルデータ通信での再生画質";
-"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
+"PlaybackQualityOnCellularDesc" = "モバイルデータ経由で動画を再生する際、選択した画質を自動的に適用します。";
 
 "PreferredCaptions" = "優先する字幕";
 "Original" = "オリジナル";
-"Custom" = "手動で選択";
+"Custom" = "カスタム";
 "CustomAudioTrack" = "音声トラックを選択";
-"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
+"CustomAudioTrackDesc" = "利用可能な場合のみ、選択した言語を優先して音声トラックを適用します。";
 "CustomCaptions" = "字幕を選択";
-"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
+"CustomCaptionsDesc" = "利用可能な場合、表示する字幕の言語を優先します。";
 "AutoGenCaps" = "自動生成の字幕";
 "AutoGenCapsDesc" = "選択した字幕が見つからない場合、YouTube Plus はオリジナル字幕の翻訳または自動生成字幕の翻訳を選択します。";
 
@@ -148,7 +148,7 @@
 "NoRelatedVids" = "オーバーレイの関連動画を非表示";
 "NoRelatedVidsDesc" = "上にスワイプして表示される関連動画をオーバーレイから削除します。";
 "NoPromotionCards" = "有料プロモーションラベルを非表示";
-"NoPromotionCardsDesc" = "プロモーションが含まれている動画から「プロモーションをみます」のラベルを非表示にします。";
+"NoPromotionCardsDesc" = "プロモーション動画に出てくる「プロモーションを含みます」という通知を非表示にします。";
 "NoWatermarks" = "ウォーターマークを非表示";
 "NoWatermarksDesc" = "プレーヤー上からチャンネルのウォーターマークを非表示にします。";
 "DisableAmbientMode" = "アンビエントモードを無効化";
@@ -187,7 +187,7 @@
 
 "Player.Actions" = "動作";
 "DefaultPlaybackRate" = "デフォルトの再生速度";
-"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
+"DefaultPlaybackRateDesc" = "再生速度の初期設定が変更できます。";
 "BackgroundPlayback" = "バックグラウンド再生";
 "BackgroundPlaybackDesc" = "バックグラウンド再生を有効にします。";
 "Miniplayer" = "ミニプレーヤーを有効化";
@@ -364,8 +364,8 @@
 "Other" = "Other";
 "NoShareChunk" = "共有識別子を削除";
 "NoShareChunkDesc" = "共有リンクから「si=identifier」パラメータを削除します。YouTube が共有メニューを継続的に改善しているため、「システムの共有シートに置換」オプションの優れた代替手段となります。";
-"AutoCheckLinks" = "Auto-check clipboard";
-"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+"AutoCheckLinks" = "クリップボードを監視";
+"AutoCheckLinksDesc" = "アプリを起動するたびクリップボードにYouTubeに関連するリンクがあるかどうかを確認します。\n正常に機能させるためには「iosの設定 > Youtube > 他のアプリから貼り付け」に移動し \"Allow\"を選択してください。";
 
 "ContextMenu" = "コンテキストメニュー";
 "NativeShare" = "システムの共有シートに置換";
@@ -447,12 +447,12 @@
 "Sb.Ask" = "スキップするか確認";
 "Sb.Display" = "プレーヤーに表示";
 
-"PublicUserID" = "Public UserID";
-"PrivateUserID" = "Private UserID";
+"PublicUserID" = "パブリック ユーザーID";
+"PrivateUserID" = "プライベート ユーザーID";
 "TapToReveal" = "Tap to reveal";
-"Save" = "Save";
-"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
-"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+"Save" = "保存";
+"Error.SbPublicID" = "パブリックユーザーIDは、正確に64文字を含まなければなりません。";
+"Error.SbPrivateID" = "プライベート（ローカル）ユーザーIDには、少なくとも32文字を含める必要があります。";
 
 "sb_sponsor" = "スポンサーセグメント";
 "sb_intro" = "イントロセグメント";
@@ -599,8 +599,8 @@
 "RetryLogin" = "回避策が有効になりました。\n\nもう一度お試しください。";
 "LoginInfo" = "Google アカウントへのログインに成功した後、アプリの再起動が必要です。";
 
-"OpenLink" = "Open link";
-"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+"OpenLink" = "リンクを開く";
+"LinkDetected" = "YouTubeに関連するリンクが検出されました。YouTubeで開きますか？";
 
 "SbWhitelist" = "Whitelist";
 "SbAddToWhitelist" = "Add to the whitelist";

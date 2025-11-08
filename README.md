@@ -1,17 +1,19 @@
 # YouTube Plus (ex. YTLite)
-A flexible enhancer for YouTube on iOS, featuring over hundred customizable options.
 
-## Table of Contents
-- [Screenshots](#screenshots)
-- [Main Features](#main-features)
+iOS 版 YouTube 用フレキシブルエンハンサー。100 以上のカスタマイズ可能なオプションを搭載。
+
+## 目次
+
+- [スクリーンショット](#スクリーンショット)
+- [主な機能](#主な機能)
 - [FAQ](#faq)
-- [Reviews](#reviews)
-- [How to build a YouTube Plus app using GitHub Actions](#how-to-build-a-youtube-plus-app-using-github-actions)
-- [Supported YouTube Version](#supported-youtube-version)
-- [Tweak Integration Details](#tweak-integration-details)
-- [FAQ (Frequently Asked Questions)](#faq-frequently-asked-questions)
+- [レビュー](#レビュー)
+- [GitHub Actions を使用して Youtube Plus を構築する方法](#github-actions-を使用して-youtube-plus-を構築する方法)
+- [サポートしているバージョン](#サポートしているバージョン)
+- [お借りした機能](#お借りした機能)
 
-## Screenshots
+## スクリーンショット
+
 <table>
    <tr>
       <td><img src="Resources/scr1.jpg" alt="Screenshot 1" /></td>
@@ -21,7 +23,7 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 </table>
 
 <details>
-  <summary>More screenshots</summary>
+  <summary>他のスクショ</summary>
   <table>
     <tr>
       <td><img src="Resources/scr4.jpg" alt="Screenshot 4" /></td>
@@ -36,30 +38,70 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
   </table>
 </details>
 
-## Main Features
-<li>Download videos, audio (including audio track selection), thumbnails, posts, and profile pictures</li>
-<li>Copy video, comment, and post information</li>
-<li>Interface customization: Remove feed elements, reorder tabs, enable OLED mode, and as use Shorts-only mode</li>
-<li>Player settings: Gestures, default quality, preferred audio track</li>
-<li>Save, Load and Restore settings. Clear cache once or automatically on app startup</li>
-<li>Built-in SponsorBlock</li>
-<li>And much, much more</li>
+## 主な機能
+
+<li>動画・音声・サムネイル・ポスト投稿・プロフィール画像のダウンロード</li>
+<li>動画概要欄・<a title="文字としてコピーだけじゃなく、画像としてもコピーできるし、保存もできるぞ！！">コメントのコピー</a></li>
+<li>UIのカスタマイズ・タブの並び替え・ <a title="たとえば黒を表現する際、通常少し灰色っぽくなるが、OLEDだと完全な黒を再現することが出来ます。">OLEDモードの有効化</a></li>
+<li>プレイヤー設定：ジェスチャー・<a title="Wi-Fi接続時とモバイルデータ使用時で、デフォルトにする画質を変更することが出来ます。">標準画質の設定</a>・<a title="閲覧する動画に、設定した言語が存在する場合のみ有効です。">優先オーディオトラック</a></li>
+<li>Youtube PLUSの設定の保存・読み込み・初期化、キャッシュの手動・自動削除</li>
+<li>SponsorBlockを搭載</li>
+<li>その他の機能はご自身で試してみて！</li>
 <br>
 
+**YouTube Plus の設定は YouTube の設定画面で確認できます**
 
-**YouTube Plus preferences can be found in the YouTube Settings**
-
-**All contributors are listed in the Contributors section**
-**Used open-source libraries are listed in the Open Source Libraries section**
+**すべての貢献者は「貢献者」セクションに記載されています**
+**使用したオープンソースライブラリは「オープンソースライブラリ」セクションに記載されています**
 
 ## FAQ
-- [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
-- [🇷🇺 ЧаВо на Русском](FAQs/FAQ_RU.md)
 
-## Reviews
+<details>
+  <summary>YouTube PlusはどのiOSバージョンに対応していますか？</summary>
+    <p><br>YouTube PlusはiOS 14以降に対応しています。<strong>ですが、脱獄していないデバイスにインストールする場合は、YouTubeアプリとご利用のiOSバージョンの互換性も考慮する必要があります。</strong><br>以下がiOSごとにサポートされている最新のYouTubeバージョンのリストです。</p>
+    <li><strong>iOS 14</strong>: YouTube v19.20.2</li>
+    <li><strong>iOS 15</strong>: YouTube v20.21.6</li>
+    <li><strong>iOS 16+</strong>: 全てのバージョンに対応</li>
+</details>
+<br>
+<details>
+  <summary>最新のYouTubeアプリで、私のiOSバージョンがサポートされなくなりました。どうすればよいですか？</summary>
+    <p><br>いくつかの方法をご紹介します。</p>
+    <li><a href="https://ios.cfw.guide/get-started/">デバイスを脱獄</a>し、 App Storeから対応しているYouTubeバージョンをインストールし、<a href="http://dvntm0.github.io/#jb">Tweakとしてインストール</a>してください。</li><br>
+    <li><a href="https://ios.cfw.guide/installing-trollstore/">TrollStoreをインストール</a>し、次に <a href="https://github.com/Lessica/TrollFools/releases/">TrollFools</a>をインストールして、App Storeから対応しているYouTubeバージョンをインストールしたのち、TrollFoolsを使用して <a href="https://github.com/dayanch96/YTLite/releases/">YouTube Plus</a> を注入してください。</li><br>
+    <li>互換性のあるIPAをオンラインで探し、 <a href="../README.md#github-actions-を使用して-youtube-plus-を構築する方法">GitHub Actionsを使用してYouTube Plusアプリを構築する</a></li>
+</details>
+<br>
+<details>
+  <summary>Cast stopped working on sideloaded YouTube Plus. What should I do?</summary>
+    <p>Until this issue is resolved, it is recommended to use YouTube version 20.14.1 or below.</p>
+</details>
+<br>
+<details>
+  <summary>When I try to play a video, I get <strong><em>Something went wrong. Refresh and try again later.</em></strong></summary>
+    <p>Before jumping to conclusions, let’s clarify a few things:</p>
+    <ol>
+      <li><strong>This is NOT</strong> caused by ad blocking</li>
+      <li><strong>This is NOT</strong> because your account was magically flagged</li>
+      <li><strong>This is NOT</strong> due to your account being secretly blacklisted</li>
+    </ol>
+    <br>
+    <p>The issue seems to lie somewhere in the sideloading process itself, even without any tweaks applied. It might be related to an invalid or missing VisitorID or VisitorData, as suggested <a href="https://github.com/pepeloni-away/userscripts/issues/6#issuecomment-2860641610">here</a>. This error has become more frequent due to YouTube’s stricter anti-download measures.</p>
+    <br>
+    <p><strong>Possible temporary workaround:</strong></p>
+    <ol>
+      <li>Sign out of your current account (or all accounts) completely: Go to the <em>You tab → Switch account → Manage accounts on this device → Remove from this device</em></li>
+      <li>Watch a few full-length videos without being signed in. Stay signed out for a few hours.</li>
+      <li>Sign back into the account that was having issues</li>
+    </ol>
+</details>
+
+## レビュー
+
 Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/
 
-## How to build a YouTube Plus app using Github actions
+## GitHub-Actions を使用して Youtube-Plus を構築する方法
+
 > [!NOTE]
 > If this your first time, complete following steps before starting:
 >
@@ -81,7 +123,6 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
   </ol>
 </details>
 
-
 <details>
   <summary>How to build the YouTube Plus app with your own link for the YouTube Plus tweak</summary>
   <ol>
@@ -100,14 +141,16 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
   </ol>
 </details>
 
-## Supported YouTube Version
+## サポートしているバージョン
+
 <ul>
    <li><strong>Latest confirmed:</strong> <em>20.29.3</em></li>
    <li><strong>Date tested:</strong> <em>July 25, 2025</em></li>
    <li><strong>YouTube Plus:</strong> <em>5.2 beta 2</em></li>
 </ul>
 
-## Tweak Integration Details
+## お借りした機能
+
 <details>
   <summary>YouPiP</summary>
   <p>YouPiP is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that enables the native Picture-in-Picture feature for videos in the iOS YouTube app.</p>

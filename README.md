@@ -10,7 +10,7 @@ iOS 版 YouTube 用フレキシブルエンハンサー。100 以上のカスタ
 - [レビュー](#レビュー)
 - [GitHub Actions を使用して Youtube Plus を構築する方法](#github-actions-を使用して-youtube-plus-を構築する方法)
 - [サポートしているバージョン](#サポートしているバージョン)
-- [お借りした機能](#お借りした機能)
+- [統合機能](#統合機能)
 
 ## スクリーンショット
 
@@ -149,7 +149,7 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
    <li><strong>YouTube Plus:</strong> <em>5.2 beta 2</em></li>
 </ul>
 
-## お借りした機能
+## 統合機能
 
 <details>
   <summary>YouPiP</summary>

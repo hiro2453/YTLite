@@ -73,26 +73,26 @@ iOS 版 YouTube 用フレキシブルエンハンサー。100 以上のカスタ
 </details>
 <br>
 <details>
-  <summary>Cast stopped working on sideloaded YouTube Plus. What should I do?</summary>
-    <p>Until this issue is resolved, it is recommended to use YouTube version 20.14.1 or below.</p>
+  <summary>サイドロードしたYouTube Plusで「キャスト」が動作しません。どうすればよいですか？</summary>
+    <p><br>この問題が解決されるまでは、YouTubeバージョン20.14.1以下を使用することを推奨します。</p>
 </details>
 <br>
 <details>
-  <summary>When I try to play a video, I get <strong><em>Something went wrong. Refresh and try again later.</em></strong></summary>
-    <p>Before jumping to conclusions, let’s clarify a few things:</p>
+  <summary>動画を再生しようとすると、<strong><em>エラーが発生しました。ページを更新して後ほど再度お試しください。</em></strong>と表示されます。</summary>
+    <p><br>結論を急ぐ前に、いくつか明確にしておきます</p>
     <ol>
-      <li><strong>This is NOT</strong> caused by ad blocking</li>
-      <li><strong>This is NOT</strong> because your account was magically flagged</li>
-      <li><strong>This is NOT</strong> due to your account being secretly blacklisted</li>
+      <li><strong>これは広告ブロックが原因ではありません</strong></li>
+      <li><strong>これは決して、あなたのアカウントが魔法のようにフラグが立てられたからではありません</strong></li>
+      <li><strong>これは、あなたのアカウントが密かにブラックリストに登録されているからではありません</strong></li>
     </ol>
     <br>
-    <p>The issue seems to lie somewhere in the sideloading process itself, even without any tweaks applied. It might be related to an invalid or missing VisitorID or VisitorData, as suggested <a href="https://github.com/pepeloni-away/userscripts/issues/6#issuecomment-2860641610">here</a>. This error has become more frequent due to YouTube’s stricter anti-download measures.</p>
+    <p>問題は、いかなる調整を施さなくても、サイドローディングプロセス自体にあるようです。<a href="https://github.com/pepeloni-away/userscripts/issues/6#issuecomment-2860641610">こちら</a>で報告されているように、無効または欠落したVisitorIDやVisitorDataに関連している可能性があります。YouTubeのダウンロード対策強化により、このエラーはより頻繁に発生するようになりました。</p>
     <br>
-    <p><strong>Possible temporary workaround:</strong></p>
+    <p><strong>一時的な回避策の可能性:</strong></p>
     <ol>
-      <li>Sign out of your current account (or all accounts) completely: Go to the <em>You tab → Switch account → Manage accounts on this device → Remove from this device</em></li>
-      <li>Watch a few full-length videos without being signed in. Stay signed out for a few hours.</li>
-      <li>Sign back into the account that was having issues</li>
+      <li>現在のアカウント（またはすべてのアカウント）から完全にサインアウトする：<em>「アカウント」タブ → アカウントを切り替え → このデバイス上のアカウントを管理 → このデバイスから削除</em></li>
+      <li>数時間サインインせず放置して、映画を見たり運動したりする</li>
+      <li>ある程度時間が経ったら、問題が発生していたアカウントに再度サインインしてください</li>
     </ol>
 </details>
 
@@ -109,7 +109,7 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 > 2. On your forked repository, go to **Repository Settings** > **Actions**, enable **Read and Write** permissions.
 
 <details>
-  <summary>How to build the YouTube Plus app</summary>
+  <summary>YouTube Plusアプリの作成方法</summary>
   <ol>
     <li>Click on <strong>Sync fork</strong>, and if your branch is out-of-date, click on <strong>Update branch</strong>.</li>
     <li>Navigate to the <strong>Actions tab</strong> in your forked repository and select <strong>Build YouTube Plus app</strong>.</li>
@@ -185,3 +185,8 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
   <p><strong>DontEatMyContent preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
   <p>Source code and additional information are available <a href="https://github.com/therealFoxster/DontEatMyContent">in therealFoxster's GitHub repository</a>.</p>
 </details>
+
+## 追記
+
+<p>こちらのプロジェクトはもともと<a href="https://github.com/dayanch96">海外の方</a>が行ったものであり、わたくしhiro2453は何の関与もしていません。ただたんに自己満足で日本語に翻訳しているだけです。</p>
+<p>また、英語だった部分は<strong>翻訳機を使った後に独自に文章を編集しています。</strong>そのため不適切な日本語の文法・言葉遣いになっている場合があります。</p>

@@ -3,7 +3,6 @@ name: YouTube Plusアプリを作成
 on:
   workflow_dispatch:
     inputs:
-
       enable_youpip:
         description: "YouPiPを統合する"
         type: boolean
@@ -70,7 +69,7 @@ concurrency:
 
 jobs:
   build:
-    name: 
+    name:
     runs-on: macos-latest
     permissions:
       contents: write
@@ -87,7 +86,7 @@ jobs:
         with:
           exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note,tweak_version
 
-      - name: Download and validate IPA
+      - name: IPAをダウンロードして検証
         run: |
           wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
 

@@ -1,41 +1,40 @@
-name: '[BETA] Create YouTube Plus app'
+name: "[ベータ版] YouTube Plusアプリを作成する"
 
 on:
   workflow_dispatch:
     inputs:
-
       enable_youpip:
-        description: "Integrate YouPiP"
+        description: "YouPiPを統合する"
         type: boolean
         required: true
         default: false
 
       enable_ytuhd:
-        description: "Integrate YTUHD"
+        description: "YTUHDを統合する"
         type: boolean
         required: true
         default: false
 
       enable_yq:
-        description: "Integrate YouQuality"
+        description: "YouQualityを統合する"
         type: boolean
         required: true
         default: false
 
       enable_ryd:
-        description: "Integrate Return YouTube Dislikes"
+        description: "Return YouTube Dislikesを統合する"
         type: boolean
         required: true
         default: false
 
       enable_demc:
-        description: "Integrate DontEatMyContent"
+        description: "DontEatMyContentを統合する"
         type: boolean
         required: true
         default: false
 
       ipa_url:
-        description: "URL to the decrypted IPA file"
+        description: "復号化された IPA ファイルへの URL"
         default: ""
         required: true
         type: string
@@ -47,19 +46,19 @@ on:
         type: string
 
       display_name:
-        description: "App Name (Optional)"
+        description: "アプリの名称 (お好み)"
         default: "YouTube"
         required: true
         type: string
 
       bundle_id:
-        description: "BundleID (Optional)"
+        description: "BundleID (お好み)"
         default: "com.google.ios.youtube"
         required: true
         type: string
 
       info_note:
-        description: "TIP: Learn more about integrations in the README via the link below"
+        description: "ヒント: 以下のリンクからREADMEで統合機能の詳細を確認してください"
         default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
         type: string
         required: false
@@ -70,7 +69,7 @@ concurrency:
 
 jobs:
   build:
-    name: 
+    name:
     runs-on: macos-latest
     permissions:
       contents: write
@@ -82,12 +81,12 @@ jobs:
           path: main
           submodules: recursive
 
-      - name: Hide sensitive inputs
+      - name: 入力した情報を非表示
         uses: levibostian/action-hide-sensitive-inputs@v1
         with:
           exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note
 
-      - name: Download and validate IPA
+      - name: IPAをダウンロードして検証
         run: |
           wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
 
@@ -98,7 +97,7 @@ jobs:
             exit 1
           fi
 
-      - name: Download and validate tweak
+      - name: 調整パッチをダウンロードして検証
         run: |
           wget "${{ inputs.tweak_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
 
@@ -109,13 +108,13 @@ jobs:
             exit 1
           fi
 
-      - name: Install Dependencies
+      - name: 依存関係をインストール
         run: brew install make ldid
 
-      - name: Set PATH environment variable
+      - name: PATH環境変数を設定
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
-      - name: Cache Theos
+      - name: Theosをキャッシュ
         id: theos
         uses: actions/cache@v4
         env:
@@ -125,7 +124,7 @@ jobs:
           key: ${{ env.cache-name }}
           restore-keys: ${{ env.cache-name }}
 
-      - name: Setup Theos
+      - name: Theosのセットアップ
         if: steps.theos.outputs.cache-hit != 'true'
         uses: actions/checkout@v4.1.7
         with:
@@ -134,7 +133,7 @@ jobs:
           path: ${{ github.workspace }}/theos
           submodules: recursive
 
-      - name: Download iOS SDK
+      - name: iOS SDKをダウンロード
         if: steps.theos.outputs.cache-hit != 'true'
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
@@ -145,10 +144,10 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Install cyan
+      - name: cyanをインストール
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
-      - name: Clone Open in YouTube (Safari extension)
+      - name: 「YouTubeで開く」を複製 (Safariの拡張機能)
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/CokePokes/YoutubeExtensions/
           cd YoutubeExtensions
@@ -156,7 +155,7 @@ jobs:
           git checkout
           mv *.appex ${{ github.workspace }}
 
-      - name: Clone YouTubeHeader
+      - name: YouTubeHeaderをクローン
         run: |
           if [ -d "$THEOS/include/YouTubeHeader" ]; then
             echo "YouTubeHeader exists. Pulling latest changes..."
@@ -176,7 +175,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Clone PSHeader
+      - name: PSHeaderをクローン
         run: |
           if [ -d "$THEOS/include/PSHeader" ]; then
             echo "PSHeader exists. Pulling latest changes..."
@@ -190,49 +189,49 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Clone YouPiP
+      - name: YouPiPをクローン
         if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouPiP.git
 
-      - name: Clone YTUHD
+      - name: YTUHDをクローン
         if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTUHD.git
 
-      - name: Clone Return-YouTube-Dislikes
+      - name: Return-YouTube-Dislikesをクローン
         if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
 
-      - name: Clone YouGroupSettings
+      - name: YouGroupSettingsをクローン
         if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouGroupSettings.git
 
-      - name: Clone YouQuality
+      - name: YouQualityをクローン
         if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
 
-      - name: Clone YTVideoOverlay
+      - name: YTVideoOverlayをクローン
         if: ${{ inputs.enable_yq || inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
 
-      - name: Clone DontEatMyContent
+      - name: DontEatMyContentをクローン
         if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
 
-      - name: Build YouPiP
+      - name: YouPiPをビルド
         if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YouPiP
@@ -241,7 +240,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build YTUHD
+      - name: YTUHDをビルド
         if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}/YTUHD
@@ -250,7 +249,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build Return-YouTube-Dislikes
+      - name: Return-YouTube-Dislikesをビルド
         if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}/Return-YouTube-Dislikes
@@ -259,7 +258,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build YouGroupSettings
+      - name: YouGroupSettingsをビルド
         if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}/YouGroupSettings
@@ -268,7 +267,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build YouQuality
+      - name: YouQualityをビルド
         if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}/YouQuality
@@ -277,7 +276,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build YTVideoOverlay
+      - name: YTVideoOverlayをビルド
         if: ${{ inputs.enable_yq || inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YTVideoOverlay
@@ -286,7 +285,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build DontEatMyContent
+      - name: DontEatMyContentをビルド
         if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}/DontEatMyContent
@@ -295,7 +294,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Inject tweaks into IPA
+      - name: IPAにtweakを注入する
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
@@ -307,7 +306,7 @@ jobs:
 
           cyan -i youtube.ipa -o YouTubePlus_Beta.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
 
-      - name: Upload to GitHub Releases
+      - name: Githubのリリースにアップロード
         uses: softprops/action-gh-release@v2.0.1
         with:
           tag_name: ytp-beta-${{ github.run_number }}
